@@ -1,21 +1,31 @@
-import style from './Card.module.scss'
+import React from "react";
+import style from './Card.module.scss';
 
-export const Card = (props) => {
+export const Card = ({id, price, title, images, info, onCartItems, isAddCard}) => {
+
+    const {small, large} = images;
+
+    const obj = {title, price, small, large, info, parentId: id};
+
+    const onClickCart = () => {
+        onCartItems(obj)
+    };
+
 
     return (
         <div className={style.cart}>
             <div className={style.cart__image}>
-                <img src={props.small} onMouseOver={(event => event.currentTarget.src = props.large)}
-                     onMouseOut={(event => event.currentTarget.src = props.small)} alt="cart"/>
+                <img src={small} onMouseOver={(event => event.currentTarget.src = large)}
+                     onMouseOut={(event => event.currentTarget.src = small)} alt="cart"/>
             </div>
             <div className={style.cart__price}>
-                <h4>{props.title}</h4>
+                <h4>{title}</h4>
                 <hr/>
-                <h4>${props.price}</h4>
+                <h4>${price}</h4>
                 <div>
-                    <button>Add to Cart</button>
+                    {!isAddCard(id) ? <button onClick={onClickCart}>Add to Cart</button> : <div className={style.itemCart}>Item In Cart</div>}
                 </div>
             </div>
         </div>
     )
-}
+};

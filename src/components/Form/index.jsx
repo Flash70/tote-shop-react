@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../Contact.module.scss';
+import style from '../../pages/Contact/Contact.module.scss';
 import {Field, reduxForm} from 'redux-form';
 import {
     alphaNumeric,
@@ -9,7 +9,7 @@ import {
     minLength2,
     phoneNumber,
     required,
-} from '../../../validation';
+} from '../../validation';
 
 
 const Form = ({addContact, handleSubmit}) => {

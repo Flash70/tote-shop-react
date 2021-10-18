@@ -2,7 +2,7 @@ import React from "react";
 import style from './Contact.module.scss'
 import {useDispatch} from "react-redux";
 import {setContactItem} from "../../redux/contactReducer";
-import {ContactForm} from "./Form";
+import {ContactForm} from "../../components/Form";
 
 
 export const Contact = () => {

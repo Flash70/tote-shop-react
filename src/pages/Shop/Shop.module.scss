@@ -1,4 +1,12 @@
+.block {
+  margin: 140px 0 0 0;
+}
+
 .cart {
   display: flex;
   flex-wrap: wrap;
+  justify-items: flex-start;
+}
+.search {
+  float: left;
 }
