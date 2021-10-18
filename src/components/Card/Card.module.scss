@@ -1,0 +1,32 @@
+.cart {
+  width: 420px;
+  height: 600px;
+}
+
+.cart__image {
+  img {
+    width: 420px;
+    height: 420px;
+  }
+}
+.cart__price {
+  h4 {
+    margin: 10px 0;
+  }
+  hr {
+    width: 20px;
+  }
+  span {
+    margin: 20px 0;
+  }
+  button {
+    width: 300px;
+    height: 35px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+  }
+}
