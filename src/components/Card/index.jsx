@@ -1,11 +1,10 @@
 import React from "react";
 import style from './Card.module.scss';
 
-export const Card = ({id, price, title, images, info, onCartItems, isAddCard}) => {
+export const Card = ({id, price, title, images, info, onCartItems, isAddCard, onRemoveCard, disabled}) => {
 
     const {small, large} = images;
-
-    const obj = {title, price, small, large, info, parentId: id};
+    const obj = {title, price, small, large, info, parentId: id, amount: 1};
 
     const onClickCart = () => {
         onCartItems(obj)
@@ -23,7 +22,7 @@ export const Card = ({id, price, title, images, info, onCartItems, isAddCard}) =
                 <hr/>
                 <h4>${price}</h4>
                 <div>
-                    {!isAddCard(id) ? <button onClick={onClickCart}>Add to Cart</button> : <div className={style.itemCart}>Item In Cart</div>}
+                    {!isAddCard(id) ? <button className={`${disabled && style.btn}`} disabled={disabled} onClick={onClickCart}>Add to Cart</button> : <button disabled={disabled} onClick={() => onRemoveCard(id)} className={`${style.itemCart} ${disabled && style.btn}`}>Item In Cart</button>}
                 </div>
             </div>
         </div>

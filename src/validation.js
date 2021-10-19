@@ -1,5 +1,5 @@
-import style from "./pages/Contact/Contact.module.scss";
-import React from "react";
+import style from './pages/Contact/Contact.module.scss';
+import React from 'react';
 
 export const required = value => value ? undefined : 'Field is required!';
 
@@ -35,7 +35,7 @@ export const FormControlInput = ({input, meta, child, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
         <div className={style.form__control + " " + (hasError ? style.error: "")}>
-            <input {...input} {...props}/>
+            <input className={style.input} {...input} {...props}/>
             {meta.touched &&
             ((meta.error && <span className={style.form__control}>{meta.error}</span>) ||
                 (meta.warning && <span className={style.form__control}>{meta.warning}</span>))}

@@ -3,7 +3,7 @@ import {toteShopAPI} from '../api/api';
 
 const ADD_MESSAGE = 'ADD_MESSAGE';
 
-export const contactReducer = (state = {}, action) => {
+export const contact = (state = {}, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
             return {

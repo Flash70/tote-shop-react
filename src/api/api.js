@@ -15,5 +15,5 @@ export const toteShopAPI = {
     },
     delCartItems: (idCart) => {
         return axios.delete(`https://615eef1aaf36590017204685.mockapi.io/cart/${idCart}`);
-    }
+    },
 }

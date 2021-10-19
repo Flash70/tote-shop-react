@@ -1,7 +1,18 @@
-import style from '../../pages/Drawer/Drawer.module.scss';
+import React from "react";
+import style from '../Drawer/Drawer.module.scss';
+
+
 
 
 export const DrawerCard = ({small, title, price, id, onRemove}) => {
+
+    const [amountItem, setAmountItem] = React.useState(1)
+
+    const changeQuantity = (e) => {
+        const value = e.target.value
+        setAmountItem(value)
+    }
+
     return (
         <div className={style.card}>
             <img src={small} alt=""/>
@@ -11,7 +22,7 @@ export const DrawerCard = ({small, title, price, id, onRemove}) => {
                     <span>${price}</span>
                 </div>
                 <div>
-                    <span>Amount</span>
+                    <span>Amount <input className={style.amount} onChange={changeQuantity} value={amountItem} type='number' min='0' max='100'/></span>
                 </div>
             </div>
             <svg onClick={() => onRemove(id)} version="1.1" id="cross-11" xmlns="http://www.w3.org/2000/svg" width="11px" height="11px"

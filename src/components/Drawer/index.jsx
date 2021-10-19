@@ -1,12 +1,19 @@
 import style from './Drawer.module.scss';
-import {DrawerCard} from '../../components/DrawerCard';
-import {useSelector} from 'react-redux';
+import {DrawerCard} from '../DrawerCard';
+import {useDispatch, useSelector} from 'react-redux';
+import {delCartItem} from '../../redux/cartReduser';
 
-export const Drawer = ({onClose, opened,onRemoveCart}) => {
+export const Drawer = ({onClose, opened}) => {
 
+    const dispatch = useDispatch();
     const cartItems = useSelector(({cart}) => cart);
 
-    const subtotal = cartItems.items.reduce((sum, obj) => Number(obj.price) + Number(sum), 0)
+
+    const onRemoveCartItems = (id) => {
+        dispatch(delCartItem(id))
+    }
+
+    const subtotal = cartItems.items.reduce((sum, obj) => (Number(obj.price) * obj.amount )+ Number(sum), 0)
 
     return (
         <div className={`${style.overlay} ${opened && style.overlayVisible}`}>
@@ -20,11 +27,11 @@ export const Drawer = ({onClose, opened,onRemoveCart}) => {
                     <h1>Cart</h1>
                 </div>
                 <div className={style.block__items}>
-                    {cartItems.isLoaded ? cartItems.items.map(items => <DrawerCard key={items.id} onRemove={onRemoveCart} {...items} />) : <div>Loading</div>}
+                    {cartItems.isLoaded ? cartItems.items.map(items => <DrawerCard key={items.id} onRemove={onRemoveCartItems} {...items} />) : <div>Loading</div>}
                 </div>
                 <div className={style.block__price}>
                         <h2>Subtotal:</h2>
-                        <h2>$ {subtotal}</h2>
+                        <h2>$ {subtotal.toFixed(2)}</h2>
                     <hr/>
                 </div>
                 <button>Checkout</button>

@@ -1,7 +1,7 @@
 import style from './Header.module.scss';
 import {NavLink} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {setSearch} from '../../redux/shopReducer';
+import {setSearch} from '../../redux/cardReducer';
 
 
 export const Header = ({clickOpenedCart}) => {
