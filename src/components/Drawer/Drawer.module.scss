@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  z-index: 20;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.1s ease-out, visibility 0.1s ease-out;
@@ -15,7 +15,6 @@
 .overlayVisible {
   visibility: visible;
   opacity: 1;
-
 
   .drawer {
     transform: translateX(0);
@@ -30,6 +29,7 @@
   height: 100%;
   right: 0;
   background: #ffffff;
+  z-index: 30;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   transform: translateX(100%);
   transition: transform 0.3s ease-out;

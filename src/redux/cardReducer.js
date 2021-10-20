@@ -1,17 +1,17 @@
 import {toteShopAPI} from '../api/api';
-import {setItemsCart} from "./cartReduser";
+import {setItemsCart} from './cartReduser';
 
 
 const ADD_CARD = 'ADD_CARD';
 const SEARCH = 'SEARCH';
-const DISABLE = 'DISABLE'
+const DISABLE = 'DISABLE';
 
 const initialState = {
     items: [],
     search: '',
     isLoaded: true,
     disabled: false
-}
+};
 
 export const card = (state = initialState, action) => {
     switch (action.type) {
@@ -26,12 +26,11 @@ export const card = (state = initialState, action) => {
                 ...state,
                 search: action.payload
             };
-        case DISABLE: {
+        case DISABLE:
             return {
                 ...state,
                 disabled: action.payload
-            }
-        }
+            };
         default:
             return state;
     }
@@ -44,13 +43,13 @@ export const setDisable = (values) => ({type: DISABLE, payload: values});
 
 export const setContactItem = () => async (dispatch) => {
     try {
-        const resCardItems = await toteShopAPI.getCardItems()
-        dispatch(setItemsCard(resCardItems.data))
-        const resCartItems = await toteShopAPI.getCartItems()
-        dispatch(setItemsCart(resCartItems.data))
+        const resCardItems = await toteShopAPI.getCardItems();
+        dispatch(setItemsCard(resCardItems.data));
+        const resCartItems = await toteShopAPI.getCartItems();
+        dispatch(setItemsCart(resCartItems.data));
     } catch (error) {
         alert('Ошибка при иницилизации');
         console.error(error);
     }
 
-}
+};

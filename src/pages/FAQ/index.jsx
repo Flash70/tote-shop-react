@@ -13,5 +13,5 @@ export const Faq = () => {
                 perferendis quae quisquam quo quos repudiandae vero? Ab doloremque hic iusto, magni natus non saepe
                 veritatis voluptatum.</p>
         </div>
-    )
-}
+    );
+};

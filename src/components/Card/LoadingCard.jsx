@@ -19,4 +19,4 @@ const LoadingCard = (props) => (
     </ContentLoader>
 )
 
-export default LoadingCard
+export default LoadingCard;

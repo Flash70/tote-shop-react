@@ -8,9 +8,10 @@ export const Header = ({clickOpenedCart}) => {
     const values = useSelector(({card}) => card.search);
     const dispatch = useDispatch();
 
-    const onSearch = (event) => {
-        dispatch(setSearch(event.target.value))
-    }
+    const onSearch = (event) => {  // поиск на странице
+        dispatch(setSearch(event.target.value));
+    };
+
     return (
         <>
             <div className={style.header}>
@@ -38,5 +39,5 @@ export const Header = ({clickOpenedCart}) => {
             </div>
 
         </>
-    )
+    );
 };

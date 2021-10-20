@@ -18,7 +18,7 @@ export const contact = (state = {}, action) => {
 
 const setIsContact = (value) => ({type: ADD_MESSAGE, payload: value});
 
-export const setContactItem = (value) => (dispatch) => {
-    dispatch(setIsContact(value))
-    toteShopAPI.setContact(value)
-}
+export const setContactItem = (value) => async (dispatch) => {
+    dispatch(setIsContact(value));
+    await toteShopAPI.setContact(value);
+};

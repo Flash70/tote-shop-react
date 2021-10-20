@@ -13,21 +13,21 @@ export const Shop = React.memo(() => {
 
         const dispatch = useDispatch();
 
-        const onCartItems = (obj) => {
+        const onCartItems = (obj) => {   // добавить товар в корзину
             dispatch(setCartItem(obj));
         };
 
-        const onRemoveCard = (id) => {
+        const onRemoveCard = (id) => {    // удалить товар из карзины
             const idCartRemove = dataCart.items.find((cartObj) => Number(cartObj.parentId) === Number(id));
             dispatch(delCartItem(idCartRemove.id));
         };
 
-        const isAddCard = (id) => {
+        const isAddCard = (id) => {  // совпадение товара корзины и списка товара
             return dataCart.items.some((obj) => Number(obj.parentId) === Number(id));
         };
 
 
-        const filtredItems = dataCard.items.filter((item) => item.title.toLowerCase().includes(dataCard.search.toLowerCase()));
+        const filtredItems = dataCard.items.filter((item) => item.title.toLowerCase().includes(dataCard.search.toLowerCase()));   // поиск товара на странице
 
 
         return (

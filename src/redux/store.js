@@ -2,8 +2,8 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import {contact} from './contactReducer';
 import { reducer as formReducer } from 'redux-form';
-import {card} from "./cardReducer";
-import {cart} from "./cartReduser";
+import {card} from './cardReducer';
+import {cart} from './cartReduser';
 
 
 const reducers = combineReducers({contact, form: formReducer, card, cart});

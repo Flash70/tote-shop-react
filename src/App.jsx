@@ -12,19 +12,19 @@ import {setContactItem} from './redux/cardReducer';
 
 
 
-function App() {
+const App = () => {
     const dispatch = useDispatch();
-    const [cartOpened, setCartOpened] = React.useState(false);
+    const [cartOpened, setCartOpened] = React.useState(false);  // состояние корзины
 
 
-    React.useEffect(() => {
+    React.useEffect(() => {   // иницилизация приложения
         dispatch(setContactItem());
-    }, [])
+    }, []);
 
 
-    const onClickCart = () => {
+    const onClickCart = () => {   // открыти, закрытие корзины
         setCartOpened(!cartOpened);
-    }
+    };
 
 
     return (
@@ -37,7 +37,7 @@ function App() {
                 <Route path='/contact' render={() => <Contact/>}/>
         </div>
     );
-}
+};
 
 export default App;
 

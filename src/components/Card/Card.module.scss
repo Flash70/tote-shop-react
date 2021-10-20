@@ -9,16 +9,20 @@
     height: 420px;
   }
 }
+
 .cart__price {
   h4 {
     margin: 10px 0;
   }
+
   hr {
     width: 20px;
   }
+
   span {
     margin: 20px 0;
   }
+
   button {
     width: 300px;
     height: 35px;
@@ -29,6 +33,7 @@
     border: none;
     cursor: pointer;
   }
+
   .itemCart {
     width: 300px;
     height: 35px;
@@ -38,6 +43,7 @@
     letter-spacing: 2px;
     border: none;
   }
+
   .btn {
     background: darkgray;
   }

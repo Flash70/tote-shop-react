@@ -1,15 +1,10 @@
-import React from "react";
+import React from 'react';
 import style from './Card.module.scss';
 
 export const Card = ({id, price, title, images, info, onCartItems, isAddCard, onRemoveCard, disabled}) => {
 
     const {small, large} = images;
-    const obj = {title, price, small, large, info, parentId: id, amount: 1};
-
-    const onClickCart = () => {
-        onCartItems(obj)
-    };
-
+    const obj = {title, price, small, large, info, parentId: id, amount: 1};  // объект товара в корзине
 
     return (
         <div className={style.cart}>
@@ -22,9 +17,12 @@ export const Card = ({id, price, title, images, info, onCartItems, isAddCard, on
                 <hr/>
                 <h4>${price}</h4>
                 <div>
-                    {!isAddCard(id) ? <button className={`${disabled && style.btn}`} disabled={disabled} onClick={onClickCart}>Add to Cart</button> : <button disabled={disabled} onClick={() => onRemoveCard(id)} className={`${style.itemCart} ${disabled && style.btn}`}>Item In Cart</button>}
+                    {!isAddCard(id) ? <button className={`${disabled && style.btn}`} disabled={disabled}
+                                              onClick={() => onCartItems(obj)}>Add to Cart</button>
+                        : <button disabled={disabled} onClick={() => onRemoveCard(id)}
+                                  className={`${style.itemCart} ${disabled && style.btn}`}>Item In Cart</button>}
                 </div>
             </div>
         </div>
-    )
+    );
 };

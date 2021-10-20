@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import style from './Contact.module.scss'
-import {useDispatch} from "react-redux";
-import {setContactItem} from "../../redux/contactReducer";
-import {ContactForm} from "../../components/Form";
+import {useDispatch} from 'react-redux';
+import {setContactItem} from '../../redux/contactReducer';
+import {ContactForm} from '../../components/Form';
 
 
 export const Contact = () => {
@@ -10,7 +10,7 @@ export const Contact = () => {
 
     const addContact = (value) => {
         dispatch(setContactItem(value))
-    }
+    };
 
     return (
         <div className={style.block}>
@@ -23,5 +23,5 @@ export const Contact = () => {
             </div>
             <ContactForm onSubmit={addContact}/>
         </div>
-    )
-}
+    );
+};

@@ -1,5 +1,5 @@
 import style from './Drawer.module.scss';
-import {DrawerCard} from '../DrawerCard';
+import {DrawerCard} from './DrawerCard';
 import {useDispatch, useSelector} from 'react-redux';
 import {delCartItem} from '../../redux/cartReduser';
 
@@ -9,15 +9,15 @@ export const Drawer = ({onClose, opened}) => {
     const cartItems = useSelector(({cart}) => cart);
 
 
-    const onRemoveCartItems = (id) => {
+    const onRemoveCartItems = (id) => {            // удалить товар из карзины
         dispatch(delCartItem(id))
     }
 
-    const subtotal = cartItems.items.reduce((sum, obj) => (Number(obj.price) * obj.amount )+ Number(sum), 0)
+    const subtotal = cartItems.items.reduce((sum, obj) => (Number(obj.price) * obj.amount) + Number(sum), 0);  // подсчет цены товаров в корзине
 
     return (
-        <div className={`${style.overlay} ${opened && style.overlayVisible}`}>
-            <div className={style.drawer}>
+        <div onClick={onClose} className={`${style.overlay} ${opened && style.overlayVisible}`}>
+            <div onClick={(e) => e.stopPropagation()} className={style.drawer}>
                 <div className={style.title}>
                     <svg onClick={onClose} version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'
                          viewBox='0 0 407.436 407.436'>
@@ -27,15 +27,18 @@ export const Drawer = ({onClose, opened}) => {
                     <h1>Cart</h1>
                 </div>
                 <div className={style.block__items}>
-                    {cartItems.isLoaded ? cartItems.items.map(items => <DrawerCard key={items.id} onRemove={onRemoveCartItems} {...items} />) : <div>Loading</div>}
+                    {cartItems.isLoaded ? cartItems.items.map(items => <DrawerCard disabled={cartItems.disabled}
+                                                                                   key={items.id}
+                                                                                   onRemove={onRemoveCartItems} {...items} />)
+                        : <div>Loading</div>}
                 </div>
                 <div className={style.block__price}>
-                        <h2>Subtotal:</h2>
-                        <h2>$ {subtotal.toFixed(2)}</h2>
+                    <h2>Subtotal:</h2>
+                    <h2>$ {subtotal.toFixed(2)}</h2>
                     <hr/>
                 </div>
                 <button>Checkout</button>
             </div>
         </div>
-    )
-}
+    );
+};
