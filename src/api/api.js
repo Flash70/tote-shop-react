@@ -19,4 +19,5 @@ export const toteShopAPI = {
     setContact: (value) => {
         return axios.post(`https://615eef1aaf36590017204685.mockapi.io/contact`, value);
     }
+
 };

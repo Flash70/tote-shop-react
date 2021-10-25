@@ -15,10 +15,12 @@ export const Header = ({clickOpenedCart}) => {
     return (
         <>
             <div className={style.header}>
-                <div className={style.title}>
-                    <h1>Tote</h1>
-                    <h3>Funky Printed Bags</h3>
-                </div>
+                <NavLink exact to='/'>
+                    <div className={style.title}>
+                        <h1>Tote</h1>
+                        <h3>Funky Printed Bags</h3>
+                    </div>
+                </NavLink>
                 <div className={style.menu_block}>
                     <ul>
                         <li><NavLink exact to='/' activeClassName={style.activeLink}>Shop</NavLink></li>
@@ -27,13 +29,14 @@ export const Header = ({clickOpenedCart}) => {
                         <li><NavLink exact to='/contact' activeClassName={style.activeLink}>Contact</NavLink></li>
                     </ul>
                 </div>
+
                 <div className={style.login}>
                     <img src='/img/search.svg' className={style.search} alt="search"/>
                     <input onChange={onSearch} value={values} placeholder='Search'/>
-                   <div className={style.prifile}>
-                       <img src="/img/icons8.svg" alt="profile"/>
-                       <p>Log In</p>
-                   </div>
+                    <div className={style.prifile}>
+                        <img src="/img/icons8.svg" alt="profile"/>
+                        <p>Log In</p>
+                    </div>
                     <img src="/img/cart.svg" alt="cart" className={style.cart} onClick={clickOpenedCart}/>
                 </div>
             </div>

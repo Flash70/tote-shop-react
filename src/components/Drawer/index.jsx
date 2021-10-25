@@ -19,7 +19,8 @@ export const Drawer = ({onClose, opened}) => {
         <div onClick={onClose} className={`${style.overlay} ${opened && style.overlayVisible}`}>
             <div onClick={(e) => e.stopPropagation()} className={style.drawer}>
                 <div className={style.title}>
-                    <svg onClick={onClose} version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'
+                    <svg onClick={onClose} version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0px'
+                         y='0px'
                          viewBox='0 0 407.436 407.436'>
                         <polygon
                             points='112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 '/>
@@ -32,7 +33,7 @@ export const Drawer = ({onClose, opened}) => {
                                                                                    onRemove={onRemoveCartItems} {...items} />)
                         : <div>Loading</div>}
                 </div>
-                <div className={style.block__price}>
+                <div className={style.info}>
                     <h2>Subtotal:</h2>
                     <h2>$ {subtotal.toFixed(2)}</h2>
                     <hr/>

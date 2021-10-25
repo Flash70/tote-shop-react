@@ -5,9 +5,11 @@ import {setDisable} from './cardReducer';
 const ADD_CART = 'ADD_CART';
 const DISABLEINPUT = 'DISABLEINPUT';
 
+
 const initialState = {
     items: [],
-    isLoaded: false,
+    orders: [],
+    isOrderComplete: false,
     disabled: false
 };
 
@@ -68,6 +70,5 @@ export const getAmountCart = (obj, id) => async (dispatch) => {
         alert('Ошибка при изменении количества товара');
         console.error(error);
     }
-
 };
 
